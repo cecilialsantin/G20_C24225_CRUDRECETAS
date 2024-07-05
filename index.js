@@ -1,5 +1,6 @@
 
 const express = require('express');
+const cors = require('cors');
 const session = require('express-session');
 require('dotenv').config();
 const db = require('./data/db');
@@ -10,7 +11,15 @@ const ingredienteRoutes = require('./routes/ingredienteRoutes')
 const app = express();
 const port = process.env.PORT || 3030;
 
+// Configurar CORS
+app.use(cors({
+  origin: 'http://localhost:3000', // Cambiar a la URL del frontend cuando se haga el despliegue
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
+
 app.use(express.json());
+
 
 // Conecta la base de datos
 db.authenticate().then(() => {
