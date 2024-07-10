@@ -14,7 +14,7 @@ const port = process.env.PORT || 3030;
 // Configurar CORS
 app.use(cors({
 
-  origin:'https://g20crudrecetafe.vercel.app/',
+  origin:'https://g20crudrecetafe.vercel.app',
   /*origin: 'http://localhost:3000',*/ // Cambiar a la URL del frontend cuando se haga el despliegue
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
